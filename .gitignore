@@ -1,0 +1,11 @@
+node_modules/
+.env
+
+# SQLite store
+news.db
+news.db-journal
+news.db-wal
+news.db-shm
+
+# Runtime log
+bot.log

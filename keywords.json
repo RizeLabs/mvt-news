@@ -1,0 +1,31 @@
+{
+  "_comment": "match_patterns: an item must hit at least one (word-boundary, case-insensitive) to reach the AI classifier, unless its source is trusted. negative_keywords: any hit drops the item.",
+
+  "match_patterns": [
+    "medical tourism", "medical tourist", "medical value travel", "health tourism", "wellness tourism",
+    "medical visa", "e-medical", "medical attendant", "treatment abroad", "treatment in india", "surgery abroad",
+    "international patient", "foreign patient", "overseas patient", "hospital chain", "jci accredited", "nabh",
+
+    "rbi", "reserve bank", "fema", "foreign exchange", "forex", "fx", "remittance", "remit", "lrs",
+    "liberalised remittance", "liberalized remittance", "master direction", "a.p. (dir", "ap dir", "authorised dealer",
+    "nri", "nre", "nro", "fcnr", "inward remittance", "outward remittance", "cross-border payment", "cross border payment",
+    "rupee", "inr", "currency", "exchange rate", "capital control", "currency control",
+    "tcs", "tax collected at source", "forex card", "international card", "travel card",
+
+    "central bank", "monetary authority", "visa rules", "visa policy", "e-visa", "evisa"
+  ],
+
+  "negative_keywords": [
+    "stock tips", "multibagger", "ipo gmp", "cricket", "bollywood", "horoscope", "crypto airdrop"
+  ],
+
+  "categories": {
+    "rbi_fema": { "label": "RBI / FEMA", "emoji": "🏦", "about": "RBI notifications, circulars, master directions, FEMA rules, authorised dealer instructions" },
+    "medical_tourism": { "label": "Medical Tourism", "emoji": "🏥", "about": "Medical/wellness tourism industry news, hospitals serving international patients, government schemes, market data" },
+    "visa_travel": { "label": "Medical Visa & Travel", "emoji": "🛂", "about": "Medical visas, e-medical visas, attendant visas, entry rules for patients" },
+    "forex_remittance": { "label": "Forex & Remittance", "emoji": "💱", "about": "Remittance limits, LRS, forex cards, cross-border payments, exchange rules affecting patients and payments" },
+    "foreign_rules": { "label": "Foreign Country Rules", "emoji": "🌍", "about": "Other countries' currency, remittance, capital-control, banking or medical-travel regulations" },
+    "tax": { "label": "Tax (TCS / GST)", "emoji": "🧾", "about": "TCS on foreign remittance, GST on medical services, tax rules for cross-border healthcare payments" },
+    "other": { "label": "Other", "emoji": "📰", "about": "Relevant but does not fit the above" }
+  }
+}

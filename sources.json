@@ -1,0 +1,29 @@
+{
+  "_comment": "Add/remove feeds here — no code changes needed. type: rss | google_news | reddit. trusted: true skips the keyword pre-filter (every item goes to the AI classifier). tz: timezone for feeds whose dates have no offset (RBI publishes IST without one).",
+
+  "rss": [
+    { "id": "rbi-notifications", "name": "RBI Notifications", "url": "https://www.rbi.org.in/notifications_rss.xml", "trusted": true, "tz": "+05:30" },
+    { "id": "rbi-press", "name": "RBI Press Releases", "url": "https://www.rbi.org.in/pressreleases_rss.xml", "trusted": true, "tz": "+05:30" },
+    { "id": "et-nri", "name": "ET NRI", "url": "https://economictimes.indiatimes.com/nri/rssfeeds/7771250.cms" },
+    { "id": "et-economy", "name": "ET Economy", "url": "https://economictimes.indiatimes.com/news/economy/rssfeeds/1373380680.cms" },
+    { "id": "et-healthcare", "name": "ET Healthcare", "url": "https://economictimes.indiatimes.com/industry/healthcare/biotech/healthcare/rssfeeds/13358050.cms" },
+    { "id": "mint-money", "name": "Mint Money", "url": "https://www.livemint.com/rss/money" },
+    { "id": "mint-economy", "name": "Mint Economy", "url": "https://www.livemint.com/rss/economy" },
+    { "id": "bl-banking", "name": "BusinessLine Money & Banking", "url": "https://www.thehindubusinessline.com/money-and-banking/feeder/default.rss" }
+  ],
+
+  "google_news": [
+    { "id": "gn-rbi-fema", "name": "Google News: RBI/FEMA", "query": "(RBI OR \"Reserve Bank\") (FEMA OR \"foreign exchange\" OR remittance OR \"master direction\" OR LRS)", "trusted": true },
+    { "id": "gn-lrs-tcs", "name": "Google News: LRS/TCS", "query": "LRS OR \"Liberalised Remittance Scheme\" OR \"outward remittance\" OR \"TCS on foreign remittance\"", "trusted": true },
+    { "id": "gn-medtour-india", "name": "Google News: Medical tourism India", "query": "\"medical tourism\" OR \"medical value travel\" OR \"heal in India\"", "trusted": true },
+    { "id": "gn-medical-visa", "name": "Google News: Medical visa", "query": "\"medical visa\" OR \"e-medical visa\" OR \"medical attendant visa\"", "trusted": true },
+    { "id": "gn-medtour-global", "name": "Google News: Medical tourism abroad", "query": "\"medical tourism\" (Thailand OR Turkey OR UAE OR Dubai OR Malaysia OR Singapore OR Bangladesh OR Nepal OR Iraq OR Oman OR Kenya OR Nigeria)", "trusted": true },
+    { "id": "gn-remit-rules", "name": "Google News: Remittance rules abroad", "query": "remittance (rules OR tax OR limit OR regulation) (UAE OR Saudi OR USA OR UK OR Singapore OR Bangladesh OR Nigeria OR Kenya)" },
+    { "id": "gn-capital-controls", "name": "Google News: Currency/capital controls", "query": "\"capital controls\" OR \"currency controls\" OR \"foreign exchange rules\" OR \"forex regulations\" central bank" }
+  ],
+
+  "reddit": {
+    "subreddits": ["nri", "IndiaInvestments", "personalfinanceindia", "IndiaTax", "medicaltourism", "expats"],
+    "searches": ["\"medical tourism\"", "\"medical visa\" india", "LRS remittance", "TCS \"foreign remittance\""]
+  }
+}

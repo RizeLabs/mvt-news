@@ -1,0 +1,24 @@
+{
+  "name": "mvt-news",
+  "version": "1.0.0",
+  "description": "Telegram bot tracking RBI/FEMA, medical tourism, forex and foreign money rules",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_NO_WARNINGS=1 node index.js",
+    "check": "node scripts/check-sources.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0",
+    "dotenv": "^18.0.5",
+    "node-telegram-bot-api": "^0.67.0",
+    "rss-parser": "^3.13.0",
+    "zod": "^4.6.5"
+  },
+  "engines": {
+    "node": ">=22.5"
+  }
+}
