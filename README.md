@@ -1,6 +1,6 @@
 # MVT News Bot
 
-A Telegram bot for the medical value travel business. It watches **RBI/FEMA notifications, medical tourism news, medical visas, forex & remittance rules (LRS/TCS), and foreign countries' money rules** across RBI, Indian news sites, Google News, and Reddit. It sends AI-triaged instant alerts for important changes and a daily digest at 23:30 IST.
+A Telegram bot for the medical value travel business. It watches **RBI/FEMA notifications, medical tourism news, medical visas, forex & remittance rules (LRS/TCS), and foreign countries' money rules** across RBI, Indian news sites, Google News, and Reddit. It sends AI-triaged instant alerts for important changes and a daily digest at 23:45 IST.
 
 ## How it works
 
@@ -53,7 +53,7 @@ On first run it backfills the last 24h **without** instant alerts, so `/latest` 
 |---|---|
 | `/start` / `/stop` | Subscribe / unsubscribe |
 | `/topics` | Toggle categories with buttons |
-| `/alerts on\|off`, `/daily on\|off` | Instant alerts / 11:30pm digest |
+| `/alerts on\|off`, `/daily on\|off` | Instant alerts / 11:45pm digest |
 | `/latest [category]` | Last 10 relevant items |
 | `/digest` | Last 24h, grouped by category |
 | `/search <words>` | Search stored items |

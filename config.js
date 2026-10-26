@@ -26,7 +26,7 @@ const config = {
   minAlertScore: num(process.env.MIN_ALERT_SCORE, 8), // instant alert at/above this (or urgency=high)
   maxAlertsPerHour: num(process.env.MAX_ALERTS_PER_HOUR, 15),
 
-  digestTimeIST: digestTime(process.env.DIGEST_TIME_IST, '23:30'), // daily digest at 23:30 IST
+  digestTimeIST: digestTime(process.env.DIGEST_TIME_IST, '23:45'), // daily digest at 23:45 IST
   dedupeWindowHours: 72,
   dedupeSimilarity: 0.6, // title token Jaccard at/above this = same story
 

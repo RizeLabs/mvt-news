@@ -180,7 +180,7 @@ const HELP = `<b>MVT News Bot</b> — tracks RBI/FEMA, medical tourism, medical 
 /ask &lt;question&gt; — AI answer from stored news
 /topics — choose categories
 /alerts on|off — instant alerts
-/daily on|off — 11:30pm IST digest
+/daily on|off — 11:45pm IST digest
 /add &lt;url&gt; — track a link (e.g. a LinkedIn post)
 /status — source health
 /stop — unsubscribe
