@@ -116,7 +116,7 @@ const pollReddit = makePoller('Reddit', redditSources, 2500);
 function istNow() {
   // IST is UTC+5:30 year-round (no DST).
   const d = new Date(Date.now() + 5.5 * HOUR);
-  return { date: d.toISOString().slice(0, 10), hour: d.getUTCHours() };
+  return { date: d.toISOString().slice(0, 10), hour: d.getUTCHours(), minute: d.getUTCMinutes() };
 }
 
 function digestItems(sinceMs) {
@@ -124,8 +124,9 @@ function digestItems(sinceMs) {
 }
 
 async function maybeSendDigest() {
-  const { date, hour } = istNow();
-  if (backfilling || hour < config.digestHourIST || db.getMeta('last_digest_date') === date) return;
+  const { date, hour, minute } = istNow();
+  const { hour: dh, minute: dm } = config.digestTimeIST;
+  if (backfilling || hour * 60 + minute < dh * 60 + dm || db.getMeta('last_digest_date') === date) return;
   // Marked before sending: a crash mid-send skips that day rather than double-sending to everyone.
   db.setMeta('last_digest_date', date);
 
@@ -134,7 +135,7 @@ async function maybeSendDigest() {
   const items = digestItems(since);
   db.setMeta('last_digest_at', now);
   console.log(`[Digest] Sending daily digest with ${items.length} item(s).`);
-  await broadcastDigest(items, `☀️ <b>Daily digest · ${date}</b>`);
+  await broadcastDigest(items, `🌙 <b>Daily digest · ${date}</b>`);
 }
 
 // ---------- manual add ----------
@@ -198,7 +199,7 @@ async function main() {
     console.log('[Monitor] Backfill complete — live alerts are on.\n');
   }
 
-  console.log(`[Monitor] Polling news every ${config.newsPollMinutes}m, Reddit every ${config.redditPollMinutes}m. Digest at ${config.digestHourIST}:00 IST.`);
+  console.log(`[Monitor] Polling news every ${config.newsPollMinutes}m, Reddit every ${config.redditPollMinutes}m. Digest at ${config.digestTimeIST.label} IST.`);
 }
 
 process.on('unhandledRejection', (err) => console.error('[Monitor] Unhandled rejection:', err));

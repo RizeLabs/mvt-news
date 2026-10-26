@@ -3,6 +3,15 @@ const keywords = require('./keywords.json');
 
 const num = (v, d) => (Number.isFinite(Number(v)) && v !== '' && v != null ? Number(v) : d);
 
+// "HH:MM" (24h) → { hour, minute, label }. Falls back to the default on anything malformed.
+function digestTime(v, d) {
+  const m = /^(\d{1,2}):(\d{2})$/.exec((v || '').trim()) || /^(\d{1,2}):(\d{2})$/.exec(d);
+  const hour = Number(m[1]);
+  const minute = Number(m[2]);
+  if (hour > 23 || minute > 59) return digestTime(d, d);
+  return { hour, minute, label: `${String(hour).padStart(2, '0')}:${m[2]}` };
+}
+
 const config = {
   sources,
   keywords,
@@ -17,7 +26,7 @@ const config = {
   minAlertScore: num(process.env.MIN_ALERT_SCORE, 8), // instant alert at/above this (or urgency=high)
   maxAlertsPerHour: num(process.env.MAX_ALERTS_PER_HOUR, 15),
 
-  digestHourIST: num(process.env.DIGEST_HOUR_IST, 9), // daily digest at 09:00 IST
+  digestTimeIST: digestTime(process.env.DIGEST_TIME_IST, '23:30'), // daily digest at 23:30 IST
   dedupeWindowHours: 72,
   dedupeSimilarity: 0.6, // title token Jaccard at/above this = same story
 

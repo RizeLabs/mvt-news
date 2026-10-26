@@ -180,7 +180,7 @@ const HELP = `<b>MVT News Bot</b> — tracks RBI/FEMA, medical tourism, medical 
 /ask &lt;question&gt; — AI answer from stored news
 /topics — choose categories
 /alerts on|off — instant alerts
-/daily on|off — 9am IST digest
+/daily on|off — 11:30pm IST digest
 /add &lt;url&gt; — track a link (e.g. a LinkedIn post)
 /status — source health
 /stop — unsubscribe
@@ -248,7 +248,7 @@ function startBot({ onManualAdd, onDigestNow }) {
 
   on(/^\/start(?:@\w+)?(?:\s|$)/, async (msg) => {
     db.addSubscriber(msg.chat.id, msg.from?.username || msg.from?.first_name);
-    await send(msg.chat.id, `✅ Subscribed. You'll get instant alerts for important changes and a daily digest at ${config.digestHourIST}:00 IST.\n\n${HELP}`);
+    await send(msg.chat.id, `✅ Subscribed. You'll get instant alerts for important changes and a daily digest at ${config.digestTimeIST.label} IST.\n\n${HELP}`);
   });
 
   on(/^\/help(?:@\w+)?(?:\s|$)/, (msg) => send(msg.chat.id, HELP));
@@ -295,7 +295,7 @@ function startBot({ onManualAdd, onDigestNow }) {
     db.addSubscriber(msg.chat.id, msg.from?.username);
     if (m[1]) db.setSubscriberField(msg.chat.id, 'digest', m[1].toLowerCase() === 'on' ? 1 : 0);
     const s = db.getSubscriber(msg.chat.id);
-    await send(msg.chat.id, `Daily digest is <b>${s.digest ? 'ON' : 'OFF'}</b> (${config.digestHourIST}:00 IST). Use /daily on or /daily off.`);
+    await send(msg.chat.id, `Daily digest is <b>${s.digest ? 'ON' : 'OFF'}</b> (${config.digestTimeIST.label} IST). Use /daily on or /daily off.`);
   });
 
   on(/^\/latest(?:@\w+)?(?:\s+(\w+))?\s*$/i, async (msg, m) => {
